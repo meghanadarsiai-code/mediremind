@@ -1,39 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>MediRemind Pro</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediRemind</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #fff5f5; padding: 20px; }
-        .app-container { max-width: 400px; margin: auto; background: white; padding: 20px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .med-item { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee; }
-        .add-area { margin-top: 20px; padding-top: 20px; border-top: 2px solid #ffccd5; }
-        input { width: 100%; padding: 8px; margin: 5px 0; }
-        button { background: #d63384; color: white; border: none; padding: 10px; width: 100%; border-radius: 5px; cursor: pointer; }
+        body { font-family: Arial, sans-serif; background-color: #fce4ec; color: #333; padding: 20px; display: flex; justify-content: center; }
+        .phone-mockup { background: white; width: 350px; height: 650px; border-radius: 35px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); border: 8px solid #333; padding: 20px; overflow-y: auto; }
+        h2 { text-align: center; color: #d81b60; border-bottom: 2px solid #f8bbd0; padding-bottom: 10px; }
+        .med-card { background: #f8bbd0; padding: 15px; border-radius: 10px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .med-card h4 { margin: 0 0 5px 0; color: #880e4f; }
+        .time { background: white; padding: 5px 10px; border-radius: 20px; font-weight: bold; color: #d81b60; font-size: 0.9rem; }
+        .add-btn { width: 100%; background: #d81b60; color: white; border: none; padding: 15px; border-radius: 10px; font-size: 1rem; font-weight: bold; cursor: pointer; margin-top: 10px; }
     </style>
 </head>
 <body>
-    <div class="app-container">
-        <h2>💊 MediRemind Pro</h2>
-        <div id="med-list">
-            <div class="med-item"><span>Amoxicillin</span> <span>08:00 AM</span></div>
-            <div class="med-item"><span>Paracetamol</span> <span>02:00 PM</span></div>
+    <div class="phone-mockup">
+        <h2>💊 MediRemind</h2>
+        
+        <div class="med-card">
+            <div>
+                <h4>Amoxicillin</h4>
+                <small>1 Pill - After Food</small>
+            </div>
+            <div class="time">08:00 AM</div>
         </div>
-        <div class="add-area">
-            <h4>Add New Medication</h4>
-            <input type="text" id="medName" placeholder="Medicine Name">
-            <input type="time" id="medTime">
-            <button onclick="addMed()">Schedule Reminder</button>
+
+        <div class="med-card">
+            <div>
+                <h4>Vitamin D3</h4>
+                <small>1 Capsule</small>
+            </div>
+            <div class="time">12:30 PM</div>
         </div>
+
+        <div class="med-card" style="background: #e0e0e0;">
+            <div>
+                <h4 style="color: #555;">Paracetamol</h4>
+                <small>Taken ✔️</small>
+            </div>
+            <div class="time" style="color: #555;">06:00 AM</div>
+        </div>
+
+        <button class="add-btn" onclick="alert('Scheduling feature opens device native notifications!')">+ Add New Medication</button>
     </div>
-    <script>
-        function addMed() {
-            const name = document.getElementById('medName').value;
-            const time = document.getElementById('medTime').value;
-            if(name && time) {
-                const list = document.getElementById('med-list');
-                list.innerHTML += `<div class="med-item"><span>${name}</span> <span>${time}</span></div>`;
-            }
-        }
-    </script>
 </body>
 </html>
